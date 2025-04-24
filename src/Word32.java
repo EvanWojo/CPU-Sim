@@ -81,7 +81,7 @@ public class Word32 {
         }
     }
 
-    public void not( Word32 result) {
+    public void not(Word32 result) {
         not(this, result);
     }
 
@@ -89,6 +89,22 @@ public class Word32 {
         for (int i = 0; i < a.word32.length; i++) {
             a.word32[i].not(result.word32[i]);
         }
+    }
+
+    public void fromString (String word) { //Converts from string to word32
+
+        if (word.length() != 32) //Check length of the string
+            throw new ArrayIndexOutOfBoundsException();
+
+        for (int j = 0; j < 32; j++) {
+            if (word.charAt(j) == 'f')
+                this.word32[j].assign(Bit.boolValues.FALSE);
+            else if (word.charAt(j) == 't')
+                this.word32[j].assign(Bit.boolValues.TRUE);
+            else
+                throw new ArrayIndexOutOfBoundsException();
+        }
+
     }
 
     public String toString() {
@@ -103,6 +119,7 @@ public class Word32 {
             sb.append(bit.toString());
             sb.append(",");
         }
+        sb.append(" ").append(TestConverter.toInt(this));
         return sb.toString();
     }
 }
