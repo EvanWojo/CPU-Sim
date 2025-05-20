@@ -1,0 +1,2 @@
+This simulation starts at the bit level, which are part of words that can be either 16 bits or 32 bits in length. An ALU manipulates bits to perform math operations and shifting. Memory and registers are also simulated and can be loaded from or stored into. An assembler takes
+the Simple Instruction Architecture and converts it into words, which the processor then takes from memory, decodes, executes, and stores.
